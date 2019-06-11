@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Frota.Application.ViewModels.VeiculoModel>
+
+    @{
+    ViewData["Title"] = "Veículos";
+    }
+
+    <div class="book-example panel panel-warning">
+        <div class="panel-heading panel-head">Pesquisar veíuculos pelo Chassi</div>
+        <div class="panel-body">
+            @using (Html.BeginForm("Index", "Veiculo", FormMethod.Get))
+            {
+           
+
+            <div class="row">
+                <div class="col-lg-3">
+                    @Html.Editor("Chassi", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="col-lg-2">
+                    <input type="submit" value="Pesquisar" class="btn btn-primary" />
+                </div>
+            </div>
+
+            }
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading panel-head">
+            Listagem de Veículos
+        </div>
+
+        <div class="panel-body">
+            <a id="createEditBookModal" href="@Url.Action("SaveOrEdit")" class="btn btn-success">
+                 Veículo
+            </a>
+            <a href="#" class="btn btn-warning">
+                <span class="glyphicon glyphicon-floppy-disk"></span> Default text here
+            </a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Chassi)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Tipo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumeroPassageiro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Cor)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Chassi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumeroPassageiro)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cor)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
