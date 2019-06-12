@@ -40,8 +40,12 @@
             <div class="col-md-4 text-right">
                 <form asp-action="Delete">
                     <input type="hidden" asp-for="ID" />
-                    <a asp-action="Index" class="btn btn-default">Voltar</a>
-                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <a asp-action="Index" class="btn btn-default">
+                        <span class="glyphicon glyphicon-triangle-left"></span> Voltar
+                    </a>                    
+                    <button type="submit" value="Pesquisar" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-floppy-remove"></span> Excluir
+                    </button>
                 </form>
             </div>
         </div>

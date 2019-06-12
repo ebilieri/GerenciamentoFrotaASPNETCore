@@ -9,7 +9,8 @@ namespace Frota.Application.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<Veiculo, VeiculoModel>().ForMember(tipo => tipo.Tipo,
+            CreateMap<Veiculo, VeiculoModel>()
+                .ForMember(dest => dest.Tipo,
                 opt => opt.MapFrom(source => Enum.GetName(typeof(TipoVeiculo), source.Tipo)));
         }
     }

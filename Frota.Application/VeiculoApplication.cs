@@ -5,7 +5,6 @@ using Frota.Application.ViewModels;
 using Frota.Domain.Entities;
 using Frota.Domain.Interfaces.IServices;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Frota.Application
 {
@@ -19,18 +18,17 @@ namespace Frota.Application
         }
 
         public void Adicionar(VeiculoModel entity)
-        {
+        {            
             var obj = entity.MapTo<Veiculo>();
             
             _veiculoService.Adicionar(obj);
-
-            entity = obj.MapTo<VeiculoModel>();
+           
+            entity.ID = obj.Id;
+            entity.MensagemValidacao = obj.MensagemValidacao;
         }
 
         public void Atualizar(VeiculoModel entity)
-        {
-            //var obj = entity.MapTo<Veiculo>();
-
+        {            
             _veiculoService.Atualizar(entity.ID, entity.Cor);
         }
 

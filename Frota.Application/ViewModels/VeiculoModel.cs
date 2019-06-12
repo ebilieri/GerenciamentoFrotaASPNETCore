@@ -1,8 +1,6 @@
 ﻿using Frota.Application.Enumerators;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Frota.Application.ViewModels
 {
@@ -15,7 +13,8 @@ namespace Frota.Application.ViewModels
         public string Chassi { get; set; }
 
         [Display(Name = "Tipo de Veículo")]
-        [Range(1, 255, ErrorMessage = "Campo tipo de veículo obrigatório.")]
+        [Range(1, 255, ErrorMessage = "Campo tipo de veículo invalido.")]
+        [Required(ErrorMessage = "Campo Tipo de Veículo Obrigatório")]
         public TipoVeiculo Tipo { get; set; }
 
         [Display(Name = "Número de Passageiros")]
@@ -25,10 +24,7 @@ namespace Frota.Application.ViewModels
         [Required(ErrorMessage = "Campo cor obrigatório.")]
         public string Cor { get; set; }
 
-        private List<string> _mensagemValidacao { get; set; }
-        public List<string> MensagemValidacao
-        {
-            get { return _mensagemValidacao ?? (_mensagemValidacao = new List<string>()); }
-        }
+        
+        public List<string> MensagemValidacao { get; set; }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using Frota.Application.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Frota.Application.Interfaces
 {
-   public interface IVeiculoApplication
+    public interface IVeiculoApplication
     {
         void Adicionar(VeiculoModel entity);
 

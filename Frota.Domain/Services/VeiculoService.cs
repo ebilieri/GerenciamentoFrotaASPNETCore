@@ -1,9 +1,7 @@
 ﻿using Frota.Domain.Entities;
 using Frota.Domain.Interfaces.IRepositories;
 using Frota.Domain.Interfaces.IServices;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Frota.Domain.Services
 {
@@ -19,13 +17,28 @@ namespace Frota.Domain.Services
 
         public void Adicionar(Veiculo entity)
         {
-            if (entity == null)
+            var veiculo = ObterPorChassi(entity.Chassi);
+            if (veiculo != null)
             {
-                entity.AdicionarMensagem("");
+                entity.AdicionarMensagem("Veículo já cadastrado com esse Chassi");
+
             }
+            else
+            {
+                switch (entity.Tipo)
+                {
+                    case 2:
+                        {
+                            entity.NumeroPassageiro = 42;
+                            break;
+                        }
+                    default:
+                        entity.NumeroPassageiro = 2;
+                        break;
+                }
 
-
-            _veiculoRepository.Adicionar(entity);
+                _veiculoRepository.Adicionar(entity);
+            }
         }
 
         public void Atualizar(int id, string cor)
@@ -34,6 +47,11 @@ namespace Frota.Domain.Services
             veiculo.Cor = cor;
 
             _veiculoRepository.Atualizar(veiculo);
+        }
+
+        public Veiculo ObterPorChassi(string chassi)
+        {
+            return _veiculoRepository.ObterPorChassi(chassi);
         }
 
         public IEnumerable<Veiculo> ObterTodos(string chassi)

@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frota.WebAPP", "Frota.WebAPP\Frota.WebAPP.csproj", "{3DF45C02-2E86-4D59-A999-F6740E136D1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frota.WebAPP", "Frota.WebAPP\Frota.WebAPP.csproj", "{3DF45C02-2E86-4D59-A999-F6740E136D1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frota.Repository", "Frota.Repository\Frota.Repository.csproj", "{BB6948EE-6B23-4F46-8117-01FFD2555B42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frota.Repository", "Frota.Repository\Frota.Repository.csproj", "{BB6948EE-6B23-4F46-8117-01FFD2555B42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frota.Domain", "Frota.Domain\Frota.Domain.csproj", "{91CF8468-4C2F-4644-97FF-9C39D51F4F61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frota.Domain", "Frota.Domain\Frota.Domain.csproj", "{91CF8468-4C2F-4644-97FF-9C39D51F4F61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frota.Application", "Frota.Application\Frota.Application.csproj", "{B34A83AC-B02D-417E-902C-0E7C5DE0CCB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frota.Application", "Frota.Application\Frota.Application.csproj", "{B34A83AC-B02D-417E-902C-0E7C5DE0CCB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frota.Tests", "Frota.Tests\Frota.Tests.csproj", "{814CC0BA-E567-42E5-9B24-5532A4197543}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B34A83AC-B02D-417E-902C-0E7C5DE0CCB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B34A83AC-B02D-417E-902C-0E7C5DE0CCB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B34A83AC-B02D-417E-902C-0E7C5DE0CCB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{814CC0BA-E567-42E5-9B24-5532A4197543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{814CC0BA-E567-42E5-9B24-5532A4197543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{814CC0BA-E567-42E5-9B24-5532A4197543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{814CC0BA-E567-42E5-9B24-5532A4197543}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Frota.Domain.Entities
+﻿namespace Frota.Domain.Entities
 {
     public class Veiculo : EntityBase
     {

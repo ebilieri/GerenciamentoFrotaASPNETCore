@@ -1,4 +1,5 @@
-﻿@model Frota.Application.ViewModels.VeiculoModel
+﻿@using Frota.Application.Enumerators
+@model Frota.Application.ViewModels.VeiculoModel
 
 @{
     ViewData["Title"] = "Adicionar ou Alterar Veículo";
@@ -13,17 +14,38 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="Chassi" class="control-label"></label>
-                        <input asp-for="Chassi" class="form-control" />
+
+                        @if (Model.ID == 0)
+                        {
+                            <input asp-for="Chassi" class="form-control" />
+                        }
+                        else
+                        {
+                            <input asp-for="Chassi" class="form-control" readonly="readonly" />
+                        }
+
                         <span asp-validation-for="Chassi" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Tipo" class="control-label"></label>
-                        <input asp-for="Tipo" class="form-control" />
+                        @if (Model.ID == 0)
+                        {
+                            <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<TipoVeiculo>()">
+                                <option selected="selected" value="">Selecione</option>
+                            </select>
+                        }
+                        else
+                        {
+                            <br />
+                            <b><i> @Html.DisplayFor(model => model.Tipo)</i></b>
+                            <input type="hidden" asp-for="Tipo" />
+
+                        }
                         <span asp-validation-for="Tipo" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="NumeroPassageiro" class="control-label"></label>
-                        <input asp-for="NumeroPassageiro" class="form-control" />
+                        <input asp-for="NumeroPassageiro" class="form-control" readonly="readonly" />
                         <span asp-validation-for="NumeroPassageiro" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -33,8 +55,12 @@
                     </div>
                     <div class="form-group">
                         <div class="text-right">
-                            <a asp-action="Index" class="btn btn-danger">Voltar</a>
-                            <input type="submit" value="Salvar" class="btn btn-success" />
+                            <a asp-action="Index" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-triangle-left"></span> Voltar
+                            </a>                            
+                            <button type="submit" value="Pesquisar" class="btn btn-success">
+                                <span class="glyphicon glyphicon-floppy-open"></span> Salvar
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -45,5 +71,27 @@
 
 
 @section Scripts {
+
+
+    <script>
+        $(document).ready(function () {
+            $('#Tipo').on('change', function () {
+                //alert(this.value);
+                //debugger;
+                switch (this.value) {
+                    case "1":
+                        $("#NumeroPassageiro").val("2");
+                        break;
+                    case "2":
+                        $("#NumeroPassageiro").val("42");
+                        break;
+                    default:
+                        $("#NumeroPassageiro").val("0");
+                        break;
+                }
+            });
+        });
+    </script>
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

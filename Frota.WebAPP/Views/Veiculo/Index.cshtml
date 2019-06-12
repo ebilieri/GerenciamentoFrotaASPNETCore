@@ -26,25 +26,28 @@
                 <div class="col-lg-3">
                     @Html.Editor("Chassi", new { htmlAttributes = new { @class = "form-control" } })
                 </div>
-                <div class="col-lg-2">
-                    <input type="submit" value="Pesquisar" class="btn btn-primary" />
+                <div class="col-lg-2">                    
+                    <button type="submit" value="Pesquisar" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-search"></span> Pesquisar
+                    </button>
                 </div>
             </div>
         }
     </div>
 </div>
 
-@if (Model != null)
-{
-    <div class="panel panel-primary">
-        <div class="panel-heading panel-head">
-            Listagem de Veículos
-        </div>
 
-        <div class="panel-body">
-            <a id="createEditBookModal" href="@Url.Action("SaveOrEdit")" class="btn btn-success">
-                <span class="glyphicon glyphicon-plus"></span> Veículo
-            </a>
+<div class="panel panel-primary">
+    <div class="panel-heading panel-head">
+        Listagem de Veículos
+    </div>
+
+    <div class="panel-body">
+        <a id="createEditBookModal" href="@Url.Action("SaveOrEdit")" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span> Veículo
+        </a>
+        @if (Model != null)
+        {
             <table class="table">
                 <thead>
                     <tr>
@@ -94,7 +97,7 @@
                     }
                 </tbody>
             </table>
-        </div>
+        }
     </div>
+</div>
 
-}

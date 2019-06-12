@@ -36,8 +36,10 @@
 
         <div class="form-group">
             <div class="col-md-4 text-right">
-                <a asp-action="Index" class="btn btn-danger">Voltar</a>
-                <a asp-action="Editar" asp-route-id="@Model.ID" class="btn btn-success">Editar</a>
+                <a asp-action="Index" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-triangle-left"></span> Voltar</a>
+                <a asp-action="SaveOrEdit" asp-route-id="@Model.ID" class="btn btn-success">
+                    <span class="glyphicon glyphicon-floppy-open"></span> Editar</a>
             </div>
         </div>
     </div>

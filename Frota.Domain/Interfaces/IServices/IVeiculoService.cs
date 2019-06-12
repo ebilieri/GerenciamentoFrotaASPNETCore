@@ -10,5 +10,7 @@ namespace Frota.Domain.Interfaces.IServices
         void Atualizar(int id, string cor);
 
         IEnumerable<Veiculo> ObterTodos(string chassi);
+
+        Veiculo ObterPorChassi(string chassi);
     }
 }

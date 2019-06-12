@@ -6,5 +6,7 @@ namespace Frota.Domain.Interfaces.IRepositories
     public interface IVeiculoRepository : IRepositoryBase<Veiculo>
     {
         IEnumerable<Veiculo> ObterTodos(string chassi);
+
+        Veiculo ObterPorChassi(string chassi);
     }
 }

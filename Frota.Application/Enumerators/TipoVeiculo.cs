@@ -1,6 +1,6 @@
 ﻿namespace Frota.Application.Enumerators
 {
-    public enum TipoVeiculo
+    public enum TipoVeiculo : byte
     {
         Caminhao = 1,
         Onibus = 2

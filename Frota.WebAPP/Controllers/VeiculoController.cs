@@ -2,9 +2,7 @@
 using Frota.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Frota.WebAPP.Controllers
 {
@@ -63,7 +61,7 @@ namespace Frota.WebAPP.Controllers
             }
             catch (Exception ex)
             {
-                string message = string.Format("<b>Atenção:</b> {0}<br /><br />", ex.Message);
+                string message = string.Format("Atenção: {0}", ex.Message);
                 ModelState.AddModelError(string.Empty, message);
             }
 
@@ -86,6 +84,14 @@ namespace Frota.WebAPP.Controllers
                     {
                         return RedirectToAction("index");
                     }
+                    else if (model.MensagemValidacao != null && model.MensagemValidacao.Count > 0)
+                    {
+                        foreach (var item in model.MensagemValidacao)
+                        {
+                            string message = string.Format("Atenção: {0}", item);
+                            ModelState.AddModelError(string.Empty, message);
+                        }
+                    }
                 }
                 else
                 {
@@ -101,7 +107,7 @@ namespace Frota.WebAPP.Controllers
             }
             catch (Exception ex)
             {
-                string message = string.Format("<b>Atenção:</b> {0}<br /><br />", ex.Message);
+                string message = string.Format("Atenção: {0}", ex.Message);
                 ModelState.AddModelError(string.Empty, message);
             }
 
@@ -149,7 +155,7 @@ namespace Frota.WebAPP.Controllers
             }
             catch (Exception ex)
             {
-                string message = string.Format("<b>Atenção:</b> {0}<br /><br />", ex.Message);
+                string message = string.Format("Atenção: {0}", ex.Message);
                 ModelState.AddModelError(string.Empty, message);
                 return View();
             }
