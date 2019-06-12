@@ -1,4 +1,5 @@
 ﻿using Frota.Domain.Entities;
+using System.Collections.Generic;
 
 namespace Frota.Domain.Interfaces.IServices
 {
@@ -6,6 +7,8 @@ namespace Frota.Domain.Interfaces.IServices
     {
         void Adicionar(Veiculo entity);
 
-        void Atualizar(Veiculo entity);
+        void Atualizar(int id, string cor);
+
+        IEnumerable<Veiculo> ObterTodos(string chassi);
     }
 }

@@ -13,6 +13,8 @@ namespace Frota.Application.Interfaces
 
         IEnumerable<VeiculoModel> ObterTodos();
 
+        IEnumerable<VeiculoModel> ObterTodos(string chassi);
+
         void Atualizar(VeiculoModel entity);
 
         void Remover(int id);

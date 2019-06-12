@@ -8,8 +8,8 @@ namespace Frota.Domain.Interfaces.IServices
     {        
         TEntity ObterPorId(int id);
 
-        IEnumerable<TEntity> ObterTodos();
-        
+        IEnumerable<TEntity> ObterTodos();        
+
         void Remover(TEntity entity);
     }
 }

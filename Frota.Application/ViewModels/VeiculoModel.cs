@@ -24,5 +24,11 @@ namespace Frota.Application.ViewModels
         [StringLength(50, MinimumLength = 1)]
         [Required(ErrorMessage = "Campo cor obrigatório.")]
         public string Cor { get; set; }
+
+        private List<string> _mensagemValidacao { get; set; }
+        public List<string> MensagemValidacao
+        {
+            get { return _mensagemValidacao ?? (_mensagemValidacao = new List<string>()); }
+        }
     }
 }

@@ -1,0 +1,53 @@
+﻿@model Frota.Application.ViewModels.VeiculoModel
+
+@{
+    ViewBag.Title = "Veículo";
+}
+
+<div class="book-example panel panel-primary">
+    <div class="panel-heading panel-head">Veículo</div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Chassi, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-9">
+                    @Html.DisplayFor(model => model.Chassi, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tipo, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-9">
+                    @Html.DisplayFor(model => model.Tipo, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NumeroPassageiro, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-9">
+                    @Html.DisplayFor(model => model.NumeroPassageiro, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cor, new { @class = "col-lg-2 control-label" })
+                <div class="col-lg-9">
+                    @Html.DisplayFor(model => model.Cor, new { @class = "form-control" })
+                </div>
+            </div>            
+
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-9">
+                        @Html.ActionLink("Editar", "SaveOrEdit", new { id = ViewContext.RouteData.Values["id"] }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-success" })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

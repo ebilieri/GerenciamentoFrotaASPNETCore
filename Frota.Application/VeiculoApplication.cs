@@ -20,15 +20,15 @@ namespace Frota.Application
         public void Adicionar(VeiculoModel entity)
         {
             var obj = entity.MapTo<Veiculo>();
-
+            
             _veiculoService.Adicionar(obj);
         }
 
         public void Atualizar(VeiculoModel entity)
         {
-            var obj = entity.MapTo<Veiculo>();
+            //var obj = entity.MapTo<Veiculo>();
 
-            _veiculoService.Atualizar(obj);
+            _veiculoService.Atualizar(entity.ID, entity.Cor);
         }
 
         public VeiculoModel ObterPorId(int id)
@@ -39,6 +39,13 @@ namespace Frota.Application
         }
 
         public IEnumerable<VeiculoModel> ObterTodos()
+        {
+            var obj = Mapper.Map<IEnumerable<Veiculo>, IEnumerable<VeiculoModel>>(_veiculoService.ObterTodos());
+
+            return obj;
+        }
+
+        public IEnumerable<VeiculoModel> ObterTodos(string chassi)
         {
             var obj = Mapper.Map<IEnumerable<Veiculo>, IEnumerable<VeiculoModel>>(_veiculoService.ObterTodos());
 

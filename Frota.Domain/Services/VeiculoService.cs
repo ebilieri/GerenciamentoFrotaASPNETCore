@@ -11,6 +11,7 @@ namespace Frota.Domain.Services
     {
         private readonly IVeiculoRepository _veiculoRepository;
 
+
         public VeiculoService(IVeiculoRepository veiculoRepository) : base(veiculoRepository)
         {
             _veiculoRepository = veiculoRepository;
@@ -27,9 +28,17 @@ namespace Frota.Domain.Services
             _veiculoRepository.Adicionar(entity);
         }
 
-        public void Atualizar(Veiculo entity)
+        public void Atualizar(int id, string cor)
         {
-            _veiculoRepository.Atualizar(entity);
+            var veiculo = _veiculoRepository.ObterPorId(id);
+            veiculo.Cor = cor;
+
+            _veiculoRepository.Atualizar(veiculo);
+        }
+
+        public IEnumerable<Veiculo> ObterTodos(string chassi)
+        {
+            return _veiculoRepository.ObterTodos(chassi);
         }
     }
 }
