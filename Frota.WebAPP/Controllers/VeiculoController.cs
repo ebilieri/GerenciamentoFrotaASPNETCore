@@ -28,9 +28,25 @@ namespace Frota.WebAPP.Controllers
         [HttpPost]
         public IActionResult Index(string chassi)
         {
-            var veiculos = _veiculoApplication.ObterTodos(chassi);
+            if (string.IsNullOrWhiteSpace(chassi))
+            {
+                string message = string.Format("Atenção: Informe um valor para pesquisar");
+                ModelState.AddModelError(string.Empty, message);
+                return View();
+            }
+            else
+            {
+                var veiculos = _veiculoApplication.ObterTodos(chassi);
 
-            return View(veiculos);
+                if (veiculos.Count() == 0)
+                {
+                    string message = string.Format("Atenção: Nenhum Veículo encontrado");
+                    ModelState.AddModelError(string.Empty, message);
+                    return View();
+                }
+
+                return View(veiculos);
+            }
         }
 
         [HttpGet]

@@ -5,6 +5,7 @@ using Frota.Application.ViewModels;
 using Frota.Domain.Entities;
 using Frota.Domain.Interfaces.IServices;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Frota.Application
 {
@@ -22,6 +23,8 @@ namespace Frota.Application
             var obj = entity.MapTo<Veiculo>();
             
             _veiculoService.Adicionar(obj);
+
+            entity = obj.MapTo<VeiculoModel>();
         }
 
         public void Atualizar(VeiculoModel entity)
@@ -46,8 +49,8 @@ namespace Frota.Application
         }
 
         public IEnumerable<VeiculoModel> ObterTodos(string chassi)
-        {
-            var obj = Mapper.Map<IEnumerable<Veiculo>, IEnumerable<VeiculoModel>>(_veiculoService.ObterTodos());
+        {            
+            var obj = Mapper.Map<IEnumerable<Veiculo>, IEnumerable<VeiculoModel>>(_veiculoService.ObterTodos(chassi));
 
             return obj;
         }

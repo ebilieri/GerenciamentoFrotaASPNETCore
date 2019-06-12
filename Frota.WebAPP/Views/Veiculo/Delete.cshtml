@@ -1,7 +1,7 @@
 ﻿@model Frota.Application.ViewModels.VeiculoModel
 
 @{
-    ViewBag.Title = "Excluir Veículo";
+    ViewData["Title"] = "Delete";
 }
 
 <div class="book-example panel panel-primary">
@@ -9,47 +9,41 @@
     <div class="panel-body">
         <h3>Deseja realmente excluir esse Veículo?</h3>
         <h1>@ViewBag.ErrorMessage</h1>
-        <div class="form-horizontal">
-            <div class="form-group">
-                @Html.LabelFor(model => model.Chassi, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-9">
-                    @Html.DisplayFor(model => model.Chassi, new { @class = "form-control" })
-                </div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Chassi)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Chassi)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Tipo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NumeroPassageiro)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NumeroPassageiro)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cor)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cor)
+            </dd>
+        </dl>
+        <div class="form-group">
+            <div class="col-md-4 text-right">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="ID" />
+                    <a asp-action="Index" class="btn btn-default">Voltar</a>
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Tipo, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-9">
-                    @Html.DisplayFor(model => model.Tipo, new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.NumeroPassageiro, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-9">
-                    @Html.DisplayFor(model => model.NumeroPassageiro, new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Cor, new { @class = "col-lg-2 control-label" })
-                <div class="col-lg-9">
-                    @Html.DisplayFor(model => model.Cor, new { @class = "form-control" })
-                </div>
-            </div>
-
-            
-
-            @using (Html.BeginForm())
-            {
-                <div class="form-group">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-9">
-                        <input type="submit" value="Excluir" class="btn btn-danger" />
-                        @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-success" })
-                    </div>
-                </div>
-            }
         </div>
     </div>
 </div>

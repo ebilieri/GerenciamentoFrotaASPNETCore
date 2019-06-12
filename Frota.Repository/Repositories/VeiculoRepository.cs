@@ -17,7 +17,7 @@ namespace Frota.Repository.Repositories
 
         public IEnumerable<Veiculo> ObterTodos(string chassi)
         {
-            return _frotaContext.Set<Veiculo>().Where(v => v.Chassi.ToLower().Contains(chassi.ToLower())).ToList();
+            return _frotaContext.Set<Veiculo>().Where(p => p.Chassi.ToUpper().Contains(chassi.ToUpper())).ToList();
         }
     }
 }
